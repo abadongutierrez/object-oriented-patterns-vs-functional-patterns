@@ -10,12 +10,12 @@
 
 (deftest test-record
     (let [r (Cat. "Calico" "Fuzzy McBootings")]
-        (is (= "Fuzzy McBootings" (:name r)))
-        (is (= "Calico" (get r :color)))
-        (is (= "Calico" (:color r)))))
+        (is (= "Fuzzy McBootings" (:name r))) ; using the key as a function call
+        (is (= "Calico" (get r :color)))      ; using get function
+        (is (= "Calico" (:color r)))))        ;
 
 (deftest test-record-with-protocol
     (let [r (NoisyCat. "Calico" "Fuzzy McBootings")]
-        (is (= "Fuzzy McBootings" (:name r)))
-        (is (= "Calico" (get r :color)))
-        (is (= "Fuzzy McBootingsmeows!" (.make-noise r)))))
+        (is (= "Fuzzy McBootings" (:name r)))               ; using key (as a map but it is a record)
+        (is (= "Calico" (get r :color)))                    ; using get function
+        (is (= "Fuzzy McBootingsmeows!" (.make-noise r))))) ;
