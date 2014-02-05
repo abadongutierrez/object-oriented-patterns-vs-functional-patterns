@@ -9,8 +9,8 @@
 
 (defrecord NoisyCat [color name]
     NoiseMaker
-    (make-noise [this] (str (:name this) "meows!")))
+    (make-noise [this] (str (:name this) " meows!")))
 
 (defrecord NoisyDog [color name]
     NoiseMaker
-    (make-noise [this] (str (:name this) "barks!")))
+    (make-noise [this] (str (:name this) " barks!")))
