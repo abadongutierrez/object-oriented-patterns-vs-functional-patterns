@@ -1,6 +1,12 @@
 apply plugin: 'scala'
 apply plugin: 'java'
 
+sourceCompatibility = 1.7
+version = '1.0'
+junitVersion = "4.11"
+logbackVersion = "1.1.1"
+slf4jVersion = "1.7.5"
+
 buildscript {
     repositories {
         //flatDir dirs: project.file("lib/buildscript")
@@ -27,14 +33,17 @@ repositories {
 dependencies {
     compile 'org.clojure:clojure:1.5.1'
     compile 'org.scala-lang:scala-library:2.10.3'
-    compile 'org.slf4j:slf4j-api:1.7.5'
-    compile 'ch.qos.logback:logback-classic:1.0.13'
-    compile 'ch.qos.logback:logback-core:1.0.13'
+    compile "org.slf4j:slf4j-api:$slf4jVersion"
+    compile "ch.qos.logback:logback-classic:$logbackVersion"
+    compile "ch.qos.logback:logback-core:$logbackVersion"
     compile 'org.clapper:grizzled-slf4j_2.10:1.0.1'      
 
     testCompile "org.scala-lang:scala-library:2.10.3"
     testCompile 'org.scalatest:scalatest_2.10:2.0.1-SNAP3'
-    testCompile 'junit:junit:4.11'
+    testCompile("junit:junit:$junitVersion") {
+        exclude group: 'org.hamcrest'
+    }
+    testCompile 'org.hamcrest:hamcrest-all:1.3'
 }
 
 test {
