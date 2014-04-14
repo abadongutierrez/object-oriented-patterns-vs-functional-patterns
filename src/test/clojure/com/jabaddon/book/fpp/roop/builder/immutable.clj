@@ -1,5 +1,6 @@
 (ns com.jabaddon.book.fpp.roop.builder.immutable
     (:use [clojure.test])
+    (:require [com.jabaddon.book.fpp.roop.builder.catsanddogs]) ;require is necessary before import records from a namespace
     (:import [com.jabaddon.book.fpp.roop.builder.catsanddogs Cat NoisyCat NoiseMaker])) ;a record has to be imported
 
 (deftest test-map
@@ -18,4 +19,4 @@
     (let [r (NoisyCat. "Calico" "Fuzzy McBootings")]
         (is (= "Fuzzy McBootings" (:name r)))               ; using key (as a map but it is a record)
         (is (= "Calico" (get r :color)))                    ; using get function
-        (is (= "Fuzzy McBootingsmeows!" (.make-noise r))))) ;
+        (is (= "Fuzzy McBootings meows!" (.make-noise r))))) ;

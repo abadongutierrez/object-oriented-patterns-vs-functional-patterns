@@ -16,7 +16,7 @@ public class HigherOrderFunctions {
         return vowelsInWord;
     }
 
-    private static boolean isVowel(Character character) {
+    public static boolean isVowel(Character character) {
         Character[] vowels = new Character[]{'a', 'e', 'i', 'o', 'u'};
         return Arrays.asList(vowels).contains(character);
     }
