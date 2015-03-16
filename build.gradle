@@ -1,12 +1,12 @@
 apply plugin: 'scala'
 apply plugin: 'java'
 
-sourceCompatibility = JavaVersion.VERSION_1_7
-targetCompatibility = JavaVersion.VERSION_1_7
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
 version = '1.0'
-junitVersion = "4.11"
-logbackVersion = "1.1.1"
-slf4jVersion = "1.7.5"
+def junitVersion = "4.11"
+def logbackVersion = "1.1.1"
+def slf4jVersion = "1.7.5"
 
 buildscript {
     repositories {
@@ -37,7 +37,7 @@ dependencies {
     compile "org.slf4j:slf4j-api:$slf4jVersion"
     compile "ch.qos.logback:logback-classic:$logbackVersion"
     compile "ch.qos.logback:logback-core:$logbackVersion"
-    compile 'org.clapper:grizzled-slf4j_2.10:1.0.1'      
+    compile 'org.clapper:grizzled-slf4j_2.10:1.0.1'
 
     testCompile "org.scala-lang:scala-library:2.10.3"
     testCompile 'org.scalatest:scalatest_2.10:2.0.1-SNAP3'
